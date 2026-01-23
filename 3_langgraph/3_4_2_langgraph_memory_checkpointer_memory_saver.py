@@ -29,6 +29,12 @@ print("\n=== WITH Memory ===")
 memory = MemorySaver()
 app_with_memory = graph.compile(checkpointer=memory)
 
+# creates a configuration dictionary that identifies a specific conversation or session in 
+# LangGraph's checkpoint system.
+# config is just a Python dictionary with a specific structure that LangGraph expects
+# "configurable" is a required key that LangGraph looks for
+# "thread_id": "game_1" is a unique identifier for this particular conversation thread
+
 config = {"configurable": {"thread_id": "game_1"}}
 
 # First call
